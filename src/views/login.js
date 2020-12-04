@@ -1,21 +1,29 @@
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  TextInput,
-  TouchableOpacity,
-} from 'react-native';
-
-export default class App extends React.Component {
+import {StyleSheet, Text, View, TextInput, TouchableOpacity, Alert} from 'react-native';
+import {Actions} from 'react-native-router-flux';
+export default class Login extends React.Component {
   state = {
-    email: '',
-    password: '',
+    email: 'metehan',
+    password: 'pass',
   };
+  goLogin() {
+    // ajax il kontrol
+    var name = this.state.email;
+    var pass = this.state.password;
+    var present = this;
+    if (name == '' || pass == '') {
+      Alert.alert('Boş bırakamazsınız');
+    } else {
+      if (name == 'metehan' && pass == 'password') {
+        //Route Mainpage
+        Actions.home();
+      }
+    }
+  }
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.logo}> HeyAPP </Text>{' '}
+        <Text style={styles.logo}> Fembak Store </Text>
         <View style={styles.inputView}>
           <TextInput
             style={styles.inputText}
@@ -26,29 +34,26 @@ export default class App extends React.Component {
                 email: text,
               })
             }
-          />{' '}
-        </View>{' '}
+          />
+        </View>
         <View style={styles.inputView}>
           <TextInput
             secureTextEntry
             style={styles.inputText}
-            placeholder="Password..."
+            placeholder="Şifre..."
             placeholderTextColor="#003f5c"
             onChangeText={(text) =>
               this.setState({
                 password: text,
               })
             }
-          />{' '}
-        </View>{' '}
+          />
+        </View>
         <TouchableOpacity>
-          <Text style={styles.forgot}> Forgot Password ? </Text>{' '}
-        </TouchableOpacity>{' '}
-        <TouchableOpacity style={styles.loginBtn}>
-          <Text style={styles.loginText}> LOGIN </Text>{' '}
-        </TouchableOpacity>{' '}
-        <TouchableOpacity>
-          <Text style={styles.loginText}> Signup </Text>{' '}
+          <Text style={styles.forgot}> Şifremi unuttum ? </Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.loginBtn} onPress={this.goLogin.bind(this)}>
+          <Text style={styles.loginText}> Giriş </Text>
         </TouchableOpacity>
       </View>
     );
