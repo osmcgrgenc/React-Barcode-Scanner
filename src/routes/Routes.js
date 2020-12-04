@@ -8,8 +8,8 @@ import Home from '../views/mainpage';
 const Routes = () => (
   <Router>
     <Scene key="root">
-      <Scene key="login" component={Login} title="Login" initial={true} />
-      <Scene key="home" component={Home} title="Barcode" />
+      <Scene key="login" component={Login} title="Barkod Okuyucu" initial={true} />
+      <Scene key="home" component={Home} title="Anasayfa" />
     </Scene>
   </Router>
 );

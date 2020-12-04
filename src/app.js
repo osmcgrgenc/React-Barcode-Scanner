@@ -3,10 +3,9 @@ import React, {Component} from 'react';
 // import {Provider} from 'react-redux';
 import {StyleSheet, StatusBar, UIManager, View} from 'react-native';
 
-
 // import * as reducers from '../reducers';
 // import Login from './views/login.js';
-import Routes from './routes/Routes.js';
+import {Navigasyon} from './routes/Navigator.js';
 // const reducer = combineReducers(reducers);
 // const store = createStore(reducer);
 
@@ -20,7 +19,7 @@ export default class App extends Component {
           translucent={true}
           barStyle="light-content"
         />
-        <Routes />
+        <Navigasyon />
       </View>
     );
   }
